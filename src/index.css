@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 25% 98%;
+    --foreground: 215 28% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+
+    /* Deep forest agricultural green */
+    --primary: 154 48% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Warm sand secondary */
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 154 40% 16%;
+
+    /* Muted elements */
+    --muted: 40 16% 93%;
+    --muted-foreground: 215 16% 45%;
+
+    /* Harvest amber accent */
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 18% 88%;
+    --input: 40 18% 88%;
+    --ring: 154 48% 25%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 40 20% 96%;
+
+    --card: 215 28% 13%;
+    --card-foreground: 40 20% 96%;
+
+    --popover: 215 28% 13%;
+    --popover-foreground: 40 20% 96%;
+
+    --primary: 152 55% 42%;
+    --primary-foreground: 215 28% 10%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 40 20% 96%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 152 55% 42%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f1ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
