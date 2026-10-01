@@ -1,0 +1,33 @@
+name: Auto Commit
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * *" # daily at midnight UTC
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create or update dummy file
+        run: |
+          echo "// Auto updated at $(date)" >> src/auto_update.txt
+
+      - name: Commit and push changes
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+        run: |
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add .
+          git diff --cached --quiet || git commit -m "Auto commit: update timestamp"
+          git push

@@ -9,7 +9,7 @@ import Checkout from "../../pages/public/Checkout";
 import OrderConfirmation from "../../pages/public/OrderConfirmation";
 import Login from "../../pages/public/Login";
 import Register from "../../pages/public/Register";
-
+import ForgotPassword from "../../pages/public/ForgotPassword";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +51,10 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register />,
       },
+        {
+          path: "forgot-password",
+          element: <ForgotPassword />,
+        }
     ],
   },
   // Add dashboard and admin routes later
