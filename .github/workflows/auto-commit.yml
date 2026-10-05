@@ -3,8 +3,11 @@ name: Auto Commit
 on:
   push:
     branches: ["main"]
-  schedule:
-    - cron: "*/10 * * * *" # every 10 minutes
+  repository_dispatch:
+    types: [auto-commit]
+
+permissions:
+  contents: write
 
 jobs:
   auto-commit:
@@ -17,7 +20,7 @@ jobs:
 
       - name: Create or update dummy file
         run: |
-          echo "// Auto updated at $(date)" >> src/auto_update.txt
+          echo "// Auto updated at $(date)" >> auto_update.txt
 
       - name: Commit and push changes
         env:
