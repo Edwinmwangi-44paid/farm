@@ -23,7 +23,7 @@ export default function Login() {
     // Mock authentication
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/account"); // Or /farmer/dashboard based on user role
+      navigate("/"); // Redirect to home page upon login
     }, 1500);
   };
 

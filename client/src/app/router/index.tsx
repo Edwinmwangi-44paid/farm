@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../../pages/public/Home";
+import { HomePage } from "../../pages/public/HomePage";
 import Marketplace from "../../pages/public/Marketplace";
 import Cart from "../../pages/public/Cart";
 import ProductDetails from "../../pages/public/ProductDetails";
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "marketplace",
@@ -56,9 +56,10 @@ const router = createBrowserRouter([
           element: <ForgotPassword />,
         }
     ],
-  },
-  // Add dashboard and admin routes later
+  }
 ]);
+
+export { router };
 
 export function AppRouter() {
   return <RouterProvider router={router} />;
